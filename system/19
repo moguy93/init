@@ -1,0 +1,18 @@
+avahi-daemon
+cron
+cups
+cups-browsed
+dbus
+gdomap
+kmod
+network-manager
+networking
+procps
+rsyslog
+sddm
+speech-dispatcher
+ssh
+udev
+unattended-upgrades
+Ce sont tous des services qui se lancent automatiquement lorsque la 
+machine boot, on les appellent les services daemons.

@@ -1,0 +1,40 @@
+mkdir $1
+mkdir $1/includes
+mkdir $1/srcs
+touch $1/srcs/main.c
+touch $1/srcs/$1.c
+cp -R /Users/moguy/42projects/libftevolved $1/
+touch $1/auteur
+echo "moguy" >> $1/auteur
+touch $1/includes/$1.h
+touch $1/Makefile
+echo -E 'DEF = \033[0m' >> $1/Makefile
+echo -E 'GRA = \033[1m' >> $1/Makefile
+echo -E 'SOU = \033[4m' >> $1/Makefile
+echo -E 'BLI = \033[5m' >> $1/Makefile
+echo -E 'BLA = \033[30m' >> $1/Makefile
+echo -E 'RED = \033[31m' >> $1/Makefile
+echo -E 'GRE = \033[32m' >> $1/Makefile
+echo -E 'YEL = \033[33m' >> $1/Makefile
+echo -E 'BLU = \033[34m' >> $1/Makefile
+echo -E 'PUR = \033[35m' >> $1/Makefile
+echo -E 'CYA = \033[36m' >> $1/Makefile
+echo -E 'WHI = \033[37m' >> $1/Makefile
+echo -E 'ORG = \033[1;31m\n' >> $1/Makefile
+echo "CC = @gcc\n\nCFLAGS = -Wall -Werror -Wextra\n\nNAME = \
+$1\n\nSRCS_NAME =\n\n\
+SRCS_PATH = srcs/\n\nHDR_NAME = $1.h\n\nHDR_PATH = includes/\n\nLIB_NAME = \
+libft.a\n\nLIB_PATH = libft/\n\nSRCS = \$(addprefix \$(SRCS_PATH), \
+\$(SRCS_NAME))\n\nHDR = \$(addprefix \$(HDR_PATH), \$(HDR_NAME))\n\nLIB \
+= \$(addprefix \$(LIB_PATH), \$(LIB_NAME))\n\nOBJ = \$(SRCS:.c=.o)\n\nall \
+= \$(NAME)\n\n\$(NAME) : \$(LIB) \$(OBJ) \$(HDR)\n\t\t\t\
+\$(CC) \$(CFLAGS) -o \$(NAME) \$(OBJ) \$(LIB)\n\t\t\t\
+@echo \$(ORG)Make $1\$(DEF) : \$(GRE)Done!\$(DEF)\n\n\$(LIB) \
+:\n\t\t\t@make -C \$(LIB_PATH)\n\t\t\t@echo \$(ORG)Make libft\$(DEF) \
+: \$(GRE)Done!\$(DEF)\n\n%.o : %.c \$(HDR)\n\t\t\t\$(CC) \$(CFLAGS) \
+-c \$< -o \$@ -I includes/\n\nclean : \$(SRCS)\n\t\t\t\
+@make -C libft/ clean\n\t\t\t@rm -rf \$(OBJ)\n\t\t\t\
+@echo \$(ORG)$1 clean\$(DEF)  : \$(GRE)Done!\$(DEF)\n\nfclean : \
+clean\n\t\t\t@make -C libft/ fclean\n\t\t\t\
+@rm -rf \$(NAME)\n\t\t\t@echo \$(ORG)$1 fclean\$(DEF) \
+: \$(GRE)Done!\$(DEF)\n\nre : fclean all" >> $1/Makefile

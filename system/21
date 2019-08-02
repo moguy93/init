@@ -1,0 +1,1 @@
+cat /etc/paswd | awk -F : '{if($ 3 >= 1000) {print $ 1}}'
